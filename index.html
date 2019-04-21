@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>Holub Anna</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="http://freestencilletters.com/cursive-letters/stencil-a.JPG"/>
+		<link rel="stylesheet" href="index.css">
+	</head>
+	<body>
+        <div class="container">
+            <span>Fill out the form</span>
+            <form id="form1" oninput="mark.value = grade.valueAsNumber">
+                <div class="form__message_error">
+                    The form is filled incorrectly!
+                </div> 
+                <div class="container-input">
+                    <label>First name:</label>
+                    <input type="text" name="name" class="textfield" minlength="3" maxlength="18" placeholder="first name" autofocus required>
+                    <div class="clear"></div>
+                </div>
+                <div class="container-input">
+                    <br><label>Last name:</label>
+                    <input type="text" name="lname"  class="textfield" minlength="3" maxlength="18" placeholder="last name" required>
+                    <div class="clear"></div>
+                </div>
+                <div class="container-input">
+                    <br><label>Date of birth:</label>
+                    <input type="date" name="date" value="2000-01-01" min="1930-01-01" max="2013-01-01">
+                </div>
+                <div class="container-input">
+                    <br><label>Gender:</label>
+                    <div class="container-gender">
+                        <label>Male</label><input type="radio" name="gender" class="male" value="male" required>
+                        <br><label>Female</label><input type="radio" name="gender" class="female" value="female" required>
+                    </div>
+                </div>
+                <div class="container-input">
+                    <br><label>Choose your country:</label>
+                    <select name="country" required>
+                            <option name="Ukraine" selected>Ukraine</option>
+                            <option name="France">France</option>
+                            <option name="Italy">Italy</option>
+                    </select>
+                </div>
+                <div class="container-input">
+                    <br><label>City:</label>
+                    <input type="text" name="city" class="textfield" minlength="3" maxlength="18" placeholder="City" required>
+                    <div class="clear"></div>
+                </div>
+                <div class="container-input">
+                    <br><label>Street:</label>
+                    <input type="text" name="street" class="textfield" minlength="3" maxlength="18" placeholder="Street" required>
+                    <div class="clear"></div>
+                </div>
+                <div class="container-input">
+                    <br><label>Your gmail:</label>
+                    <input type="email" name="email" minlength="11" maxlength="28" pattern=".+@gmail.com" placeholder="Email" required>
+                </div>
+                <div class="container-input">
+                    <br><label>Average grade:</label>
+                    <input type="range" id="grade" name="grade" min="1" max="12" value="11.3" step="0.1" required>
+                    <output for="grade" name="mark" value="11.3"></output>
+                </div>
+                <br><label>Courses:</label>
+                <br><label>Math</label><input  name="Math" class="course" type="checkbox" required checked>
+                <br><label>Programming</label><input type="checkbox" class="course" name="Programming">
+                <br><label>Logic</label><input type="checkbox"  class="course" name="Logic">
+                <br><label>Data bases</label><input type="checkbox" class="course" name="Data bases">
+                <br><label>Philosophy</label><input type="checkbox" class="course" name="Philosophy">
+                <br><label>Data structures</label><input type="checkbox" class="course" name="Data structures">
+                <br><label>Theory of algorithms</label><input type="checkbox" class="course" name="Theory of algorithms">
+                <br><label>English</label><input type="checkbox" class="course" name="English">
+                <br><label>OOP</label><input type="checkbox" class="course" name="OOP" required checked>
+
+                <br><label>Three words about you:</label>
+                <br><textarea rows="4" name="about" cols="53" wrap="hard" placeholder="I am..." maxlength="125"></textarea>
+
+                <br><input type="button" class="button" value="clear">
+                <input type="submit" value="send">
+                
+            </form>
+        </div>
+        <div class="done">Done!</div>
+        <script src="index.js"></script>
+        <script>
+			let f = new FormChecker("form1");
+        </script>
+    </body>
+</html>

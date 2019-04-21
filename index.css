@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+.container{
+    max-width: 600px;
+    height: 100%;
+    margin: auto;
+    background: rgb(158, 181, 162);
+    padding: 10px;
+    color: #fff;
+}
+.container-input{
+    display: flex;
+}
+span{
+    line-height: 73px;
+    font-size: 3rem;
+}
+label{
+    width: 175px;
+    margin-right: 10px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+input, select{
+    margin-bottom: 10px;
+}
+label:nth-child(8), label:nth-child(10){
+    width: 100px;
+}
+form{
+    font-family: 'Lato', sans-serif;
+    color: rgb(8, 6, 24);
+}
+input[type="range"]{
+    width: 170px;
+}
+input[type="submit"], input[type="button"]{
+    width: 155px;
+    height: 40px;
+    background: rgb(9, 151, 28);
+    border-radius: 5%;
+    border: 0;
+    color: #fff;
+    text-transform: uppercase;
+}
+.form__message_error {
+    background: red;
+    color: #fff;
+    border-radius: 3px;
+    margin: 10px 0;
+    padding: 10px;
+	display: none;
+}
+.textfield_error{
+    box-shadow:	0 0 2px red;
+}
+.done{
+    background: green;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-size: 3rem;
+    margin: auto;
+    display: none;
+}
+.clear{
+    width: 15px;
+    height: 15px;
+    background: url(images/x.png);
+    background-size: 100%;
+    margin-top: 4px;
+    display: none;
+}
+.display{
+    display: block;
+}
+@media only screen and (max-width: 768px){
+    .container{
+        width: 100%;
+        background: #cddcef;
+    }
+    form{
+        color: #fff;
+    }
+    label{
+        width: 100px;
+    }
+}
+@media only screen and (max-width: 637px){
+    .container{
+        margin: -8px 0 0 -8px;
+    }
+}
+@media only screen and (max-width: 395px){
+    textarea{
+        width: 354px;
+    }
+    input[type="button"]{
+        margin-left: 19px;
+    }
+}

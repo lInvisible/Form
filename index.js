@@ -1,7 +1,7 @@
 function FormChecker(sSelector){
 
-		let elem 		  = document.getElementById(sSelector)
-		,textfields	  = document.querySelectorAll(".textfield") 
+	let elem       = document.getElementById(sSelector)
+	,textfields    = document.querySelectorAll(".textfield") 
         ,errorMessage  = document.getElementsByClassName("form__message_error")
         ,clear         = document.getElementsByClassName("clear")
         ,date          = document.getElementsByName("date")[0]
@@ -20,9 +20,7 @@ function FormChecker(sSelector){
                 regExp = new RegExp("^[A-ZА-Я][a-zа-я\\-` ]{2,18}[0-9(,\\/ 0-9)?]{1,8}$");
             }
             let isTextfieldError = ! currentTextfield.value.match(regExp);
-
             currentTextfield.classList.toggle("textfield_error", isTextfieldError);
-
             return isTextfieldError;
         }
 
@@ -63,7 +61,6 @@ function FormChecker(sSelector){
             }
             grade.value = document.getElementsByName("grade")[0].value = 1;
             male.checked = female.checked = false;
-            
         }
 
         function loadState(){
@@ -77,8 +74,7 @@ function FormChecker(sSelector){
             catch (err) { 
                 console.log(err);
                 return null; 
-            }
-            
+            }  
         }
 
         function loadValues(){
@@ -91,12 +87,10 @@ function FormChecker(sSelector){
                     for (let i = 0; i < namesArr.length; i++){
                         document.getElementsByName(namesArr[i])[0].checked = true;
                     }
-                }
-                else if (key === "grade"){
+                }else if (key === "grade"){
                     grade.innerText = values[key];
                     document.getElementsByName(key)[0].value = values[key];
-                }
-                else{
+                }else{
                     document.getElementsByName(key)[0].value = values[key];
                 }
             };
@@ -120,7 +114,7 @@ function FormChecker(sSelector){
                             ,"country" : country.value
                             ,"courses" : findChecked()
                             ,"grade"   : grade.value
-                        }
+                           }
                 localStorage.setItem('state', JSON.stringify(info));
 
                 fetch(`https://jsonplaceholder.typicode.com/users`, {

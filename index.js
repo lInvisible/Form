@@ -1,25 +1,25 @@
 function FormChecker(sSelector){
 
-		let elem 		  = document.getElementById(sSelector); 
-		let textfields	  = document.querySelectorAll(".textfield"); 
-        let errorMessage  = document.getElementsByClassName("form__message_error"); 
-        let clear         = document.getElementsByClassName("clear");
-        let date          = document.getElementsByName("date")[0];
-        let email         = document.getElementsByName("email")[0];
-        let about         = document.getElementsByTagName("textarea")[0];
-        let grade         = document.getElementsByTagName("output")[0];
-        let country       = document.getElementsByTagName("select")[0];
-        let gender        = document.getElementsByName("gender")[0];
-        let male          = document.getElementsByClassName("male")[0];
-        let female        = document.getElementsByClassName("female")[0];
+		let elem 		  = document.getElementById(sSelector)
+		,textfields	  = document.querySelectorAll(".textfield") 
+        ,errorMessage  = document.getElementsByClassName("form__message_error")
+        ,clear         = document.getElementsByClassName("clear")
+        ,date          = document.getElementsByName("date")[0]
+        ,email         = document.getElementsByName("email")[0]
+        ,about         = document.getElementsByTagName("textarea")[0]
+        ,grade         = document.getElementsByTagName("output")[0]
+        ,country       = document.getElementsByTagName("select")[0]
+        ,gender        = document.getElementsByName("gender")[0]
+        ,male          = document.getElementsByClassName("male")[0]
+        ,female        = document.getElementsByClassName("female")[0];
 
         function checkTextField (event, textfield){
-            let currentTextfield 		= textfield ? textfield : event.currentTarget;
-            let regExp = new RegExp("[A-ZА-Я][a-zа-я\\-` ]{2,18}$");
-            if (currentTextfield == document.getElementsByName("street")[0])
+            let currentTextfield = textfield ? textfield : event.currentTarget
+            ,regExp              = new RegExp("[A-ZА-Я][a-zа-я\\-` ]{2,18}$");
+            if (currentTextfield === document.getElementsByName("street")[0]){
                 regExp = new RegExp("^[A-ZА-Я][a-zа-я\\-` ]{2,18}[0-9(,\\/ 0-9)?]{1,8}$");
-
-            let isTextfieldError		= ! currentTextfield.value.match(regExp);
+            }
+            let isTextfieldError = ! currentTextfield.value.match(regExp);
 
             currentTextfield.classList.toggle("textfield_error", isTextfieldError);
 
@@ -40,9 +40,9 @@ function FormChecker(sSelector){
         }
 
         function findChecked(){
-            let chb = document.getElementsByClassName("course");
-            let checked = [];
-            let course = "";
+            let chb = document.getElementsByClassName("course")
+            ,checked = []
+            ,course = "";
             for (let i = 0; i < chb.length; i++){
                 if (chb[i].checked){
                     course = chb[i].getAttribute("name");
@@ -69,8 +69,9 @@ function FormChecker(sSelector){
         function loadState(){
             try {
                 const serState = localStorage.getItem('state');
-                if (serState) 
+                if (serState){
                   return JSON.parse(serState);
+                }
                 return null;
             } 
             catch (err) { 
@@ -83,21 +84,21 @@ function FormChecker(sSelector){
         function loadValues(){
             const values = loadState();
             for (key in values) {
-                if (key == "gender")
+                if (key === "gender"){
                     document.getElementsByClassName(values[key])[0].checked = true;
-                else if (key == "courses"){
+                }else if (key === "courses"){
                     let namesArr = values[key];
                     for (let i = 0; i < namesArr.length; i++){
                         document.getElementsByName(namesArr[i])[0].checked = true;
                     }
                 }
-                else if (key == "grade"){
+                else if (key === "grade"){
                     grade.innerText = values[key];
                     document.getElementsByName(key)[0].value = values[key];
                 }
-                else
+                else{
                     document.getElementsByName(key)[0].value = values[key];
-                
+                }
             };
         }
 
@@ -141,6 +142,5 @@ function FormChecker(sSelector){
         elem.addEventListener("submit", checkTextfieldsGroup);
         elem.addEventListener("submit", saveAndPost);
         window.addEventListener("load", loadValues);
- 
 
 }

@@ -21,6 +21,13 @@ label{
     display: inline-block;
     margin-bottom: 10px;
 }
+label:first-child::after, label:nth-child(2)::after{
+    content: "*";
+    color: red;
+}
+.container-gender label:first-child::after{
+    content: "";
+}
 input, select{
     margin-bottom: 10px;
 }
